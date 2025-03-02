@@ -9,7 +9,15 @@
 </head>
 
 <body>
-  <h1>Hello World</h1>
+  <h1>Hello to Expenses Manager</h1>
+
+  <p>Here you can track your expenses and income and get a birdview on your finances</p>
+
+  <ul>
+    <li><a href="{{route('login.authenticate')}}">Log in</a></li>
+    <li><a href="{{route('register.index')}}">Register</a></li>
+  </ul>
+
 </body>
 
 </html>
