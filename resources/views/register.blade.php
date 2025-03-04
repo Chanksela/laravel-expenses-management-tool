@@ -28,5 +28,7 @@
       <button type="submit">Register</button>
     </form>
   </div>
+
+  <p>Already registered? <a href="{{route('login')}}">Login here</a></p>
 </body>
 </html>

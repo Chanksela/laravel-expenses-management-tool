@@ -18,6 +18,6 @@
     <li><a href="{{route('register.index')}}">Register</a></li>
   </ul>
 
-</body>
+  </body>
 
 </html>

@@ -13,4 +13,9 @@ class Category extends Model
         'name',
         'is_default'
     ];
+
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class);
+    }
 }

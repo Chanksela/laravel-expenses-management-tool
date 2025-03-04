@@ -22,6 +22,7 @@
     </div>
     <button type="submit">Login</button>
   </form>
+  <p>Not a user? <a href="{{route('register.index')}}">Register here</a></p>
 
 </body>
 </html>
