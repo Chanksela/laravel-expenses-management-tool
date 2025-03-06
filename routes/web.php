@@ -24,5 +24,6 @@ Route::post("/logout", [LoginController::class, 'logout'])->name('login.logout')
 // transactions
 Route::resource('transactions', TransactionController::class)->middleware('auth');
 
+// user profile
 Route::get('/user/{id}', [UserController::class, 'edit'])->middleware('auth')->name('user.edit');
 Route::put('/user/{id}', [UserController::class, 'update'])->middleware('auth')->name('user.update');
