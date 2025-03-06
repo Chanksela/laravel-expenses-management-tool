@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Transaction</title>
-</head>
-<body>
+@extends('layouts.app')
+@section('title', 'Edit Transactions')
+@section('content')
+
     <h1>Edit Transaction</h1>
 
     <form action="{{ route('transactions.update', $transaction->id) }}" method="POST">
@@ -52,5 +48,4 @@
     <br>
 
     <a href="{{ route('transactions.index') }}">Back to Transactions</a>
-</body>
-</html>
+@endsection

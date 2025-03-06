@@ -1,22 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard</title>
-</head>
-<body>
-  <h1>Dashboard</h1>
-  <p>Hello, {{ Auth::user()->first_name}}</p>
-
-  <form action="{{route('login.logout')}}" method="post">
-    @csrf
-    <button type="submit">Logout</button>
-  </form>
-
-  <a href="{{route('transactions.create')}}">Add new expense</a>
-
-
+@extends('layouts.app')
+@section('title', 'All Transactions')
+@section('content')
     <h1>My Transactions</h1>
 
     <form method="GET" action="{{ route('transactions.index') }}">
@@ -75,6 +59,4 @@
             </tbody>
         </table>
     @endif
-  
-</body>
-</html>
+@endsection
