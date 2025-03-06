@@ -14,6 +14,13 @@
       <label for="email">Email</label>
       <br>
       <input type="email" id="email" name="email" placeholder="Email">
+       @if($errors->has('email'))
+        <div style="color: red;">
+          @foreach($errors->get('email') as $message)
+            <p>{{ $message }}</p>
+          @endforeach
+        </div>
+      @endif
     </div>
     <div>
       <label for="password">Password</label>

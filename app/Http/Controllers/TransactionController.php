@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\TransactionRequest;
 use App\Models\Category;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
@@ -35,16 +36,8 @@ class TransactionController extends Controller
         return view('transactions.create', compact('categories'));
     }
 
-    public function store(Request $request){
-        $request->validate([
-            'description' => 'required|string|max:255',
-            'amount' => 'required|numeric',
-            'date' => 'required|date',
-            'category_id' => 'required|exists:categories,id',
-            'transaction_type' => 'required|in:1,2',
-        ]);
-
-        auth()->user()->transactions()->create($request->all());
+    public function store(TransactionRequest $request){
+        auth()->user()->transactions()->create($request->validated());
 
         return redirect()->route('transactions.index');
     }
@@ -55,17 +48,9 @@ class TransactionController extends Controller
         return view('transactions.edit', compact('transaction', 'categories'));
     }
 
-    public function update(Request $request, Transaction $transaction)
+    public function update(TransactionRequest $request, Transaction $transaction)
     {
-        $request->validate([
-            'description' => 'required|string|max:255',
-            'amount' => 'required|numeric',
-            'date' => 'required|date',
-            'transaction_type' => 'required|in:1,2',
-            'category_id' => 'required|exists:categories,id',
-        ]);
-
-        $transaction->update($request->all());
+        $transaction->update($request->validated());
 
         return redirect()->route('transactions.index')->with('success', 'Transaction updated successfully.');
     }

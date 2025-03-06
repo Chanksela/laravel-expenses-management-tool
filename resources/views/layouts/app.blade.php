@@ -65,6 +65,7 @@
 
       <div>
         <li><p>Hello, {{ Auth::user()->first_name}}</p></li>
+        <li><a href="{{route('user.edit', ['id'=>auth()->id()])}}">Profile</a></li>
         <li>  
           <form action="{{route('login.logout')}}" method="post">
             @csrf
