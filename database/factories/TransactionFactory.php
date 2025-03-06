@@ -23,7 +23,7 @@ class TransactionFactory extends Factory
             "amount" => fake()->randomFloat(2, 1, 1000),
             "date" => fake()->date(),
             "category_id" => Category::inRandomOrder()->first()->id,
-            "user_id"=> User::inRandomOrder()->first()->id,
+            "user_id" => User::factory()->create()->id,
             "transaction_type" => $this->faker->randomElement([1, 2]),
             "created_at" => now(),
             "updated_at" => now(),
