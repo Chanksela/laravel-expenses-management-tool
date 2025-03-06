@@ -22,9 +22,7 @@ class RegisterController extends Controller
             'email' => $validatedData['email'],
             'password' => Hash::make($validatedData['password']) 
         ]);
-
         
         return redirect()->route('home');
-
     }
 }

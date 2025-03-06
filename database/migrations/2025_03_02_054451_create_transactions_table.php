@@ -16,8 +16,8 @@ return new class extends Migration
             $table->text("description");
             $table->decimal("amount");
             $table->date("date");
-            $table->bigInteger("category_id");
-            $table->bigInteger("user_id");
+            $table->foreignId("category_id")->constrained()->onDelete('cascade');
+            $table->foreignId("user_id")->constrained()->onDelete('cascade');
             $table->tinyInteger("transaction_type");
             $table->timestamps();
         });
