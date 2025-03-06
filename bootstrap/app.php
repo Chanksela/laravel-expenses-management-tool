@@ -11,7 +11,9 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        //
+        $middleware->alias(
+            ['redirectIfAuthenticated' => (\App\Http\Middleware\RedirectAuthenticatedUsers::class)]
+        );
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
